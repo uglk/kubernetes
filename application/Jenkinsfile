@@ -1,10 +1,10 @@
 pipeline {
     agent {
         kubernetes{
+            customWorkspace 'application/'
             yamlFile 'agents.yaml'
         }
     }
-
     stages {
         stage("Git Version") {
             steps {
