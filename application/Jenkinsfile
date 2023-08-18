@@ -1,26 +1,7 @@
 pipeline {
     agent {
         kubernetes{
-            yaml '''
-              apiVersion: v1
-              kind: Pod
-              metadata:
-                name: dynamic-agents
-                labels:
-                  app: dynamic-agents
-              spec:
-                containers:
-                - name: git
-                  image: alpine/git
-                  command:
-                  - cat
-                  tty: true
-                - name: maven
-                  image: maven:alpine
-                  command:
-                  - cat
-                  tty: true
-            '''
+            yamlFile 'agents.yaml'
         }
     }
 
