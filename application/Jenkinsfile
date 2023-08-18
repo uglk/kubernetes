@@ -1,8 +1,7 @@
 pipeline {
     agent {
         kubernetes{
-            customWorkspace 'application/'
-            yamlFile 'agents.yaml'
+            yamlFile 'application/agents.yaml'
         }
     }
     stages {
